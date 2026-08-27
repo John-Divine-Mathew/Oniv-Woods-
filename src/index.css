@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --oniv-ivory: #F9F6F0;
+  --oniv-beige: #EFE7D8;
+  --oniv-walnut: #4A3525;
+  --oniv-charcoal: #1E1B18;
+  --oniv-earth: #14110E;
+  --oniv-amber: #B0713C;
+  --oniv-amber-dark: #8A551F;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--oniv-ivory);
+  color: var(--oniv-charcoal);
+}
+
+.font-display {
+  font-family: "Fraunces", serif;
+}
+
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--oniv-ivory); }
+::-webkit-scrollbar-thumb { background: var(--oniv-walnut); border-radius: 4px; }
