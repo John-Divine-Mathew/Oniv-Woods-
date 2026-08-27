@@ -17,6 +17,7 @@ import EnquiryModal from "../components/EnquiryModal";
 import SectionHeading from "../components/SectionHeading";
 import HiringPartner from "../components/HiringPartner";
 import FinalCTAPro from "../components/FinalCTAPro";
+import AboutWorkshopVideo from "../components/AboutWorkshopVideo";
 
 const PILLARS = [
   {
@@ -130,50 +131,15 @@ export default function AboutPage() {
       {/* STORY & HERITAGE SECTION */}
       <section className="py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Visual Composition */}
+          {/* Left Visual Composition - Professional Workshop Video */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border" style={{ borderColor: "rgba(74,53,37,0.15)" }}>
-              <img
-                src="https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_800/aboutoniv_oknzrv.png"
-                alt="Oniv Woods Workshop Studio"
-                className="w-full h-[480px] object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(180deg, transparent 60%, rgba(20,17,14,0.7) 100%)",
-                }}
-              />
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl backdrop-blur-md bg-black/40 border border-white/10 text-white">
-                <span className="eyebrow text-amber-300 block mb-1">Authentic Workshop Experience</span>
-                <p className="text-xs text-white/90">
-                  Students transforming raw timber into heirloom furniture and commercial prototypes.
-                </p>
-              </div>
-            </div>
-
-            {/* Accent badge */}
-            <div
-              className="hidden sm:flex absolute -bottom-6 -right-6 p-5 rounded-2xl shadow-xl flex-col border"
-              style={{
-                background: "var(--oniv-beige)",
-                borderColor: "rgba(74,53,37,0.15)",
-                maxWidth: "220px",
-              }}
-            >
-              <span className="font-display text-3xl font-bold" style={{ color: "var(--oniv-amber-dark)" }}>
-                2 Nations
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-wider mt-1" style={{ color: "var(--oniv-charcoal)" }}>
-                India & Indonesia Studio Network
-              </span>
-            </div>
+            <AboutWorkshopVideo />
           </motion.div>
 
           {/* Right Narrative */}
