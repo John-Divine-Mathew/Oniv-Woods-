@@ -13,6 +13,7 @@ import {
   FiCpu,
   FiUsers,
   FiShield,
+  FiGlobe,
 } from "react-icons/fi";
 import NavbarPro from "../components/NavbarPro";
 import Footer from "../components/Footer";
