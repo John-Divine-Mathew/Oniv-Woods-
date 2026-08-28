@@ -49,6 +49,29 @@ const EnquiryModal = ({ open, onClose, defaultCourse = "" }) => {
     }
   }, [defaultCourse]);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
+  // Handle Escape key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && open) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open, onClose]);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -92,7 +115,7 @@ const EnquiryModal = ({ open, onClose, defaultCourse = "" }) => {
         setLoading(false);
       })
       .catch(() => {
-        // Fallback for demo/offline resilience so user gets immediate visual confirmation
+        // Fallback resilience for demo/offline so user gets immediate visual confirmation
         setSubmitted(true);
         setLoading(false);
       });
@@ -109,210 +132,221 @@ const EnquiryModal = ({ open, onClose, defaultCourse = "" }) => {
     }
   }, [submitted, onClose]);
 
-  if (!open) return null;
-
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/65 backdrop-blur-sm"
-        />
-
-        {/* Modal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          transition={{ duration: 0.25 }}
-          className="relative z-10 w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl border"
-          style={{
-            background: "var(--oniv-ivory)",
-            borderColor: "rgba(74, 53, 37, 0.15)",
-          }}
+      {open && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="enquiry-modal-title"
         >
-          {/* Header Bar */}
-          <div
-            className="px-7 py-5 flex items-center justify-between border-b"
+          {/* High-Z Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/75 backdrop-blur-md"
+            aria-hidden="true"
+          />
+
+          {/* Modal Window Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative z-10 w-full max-w-lg max-h-[90vh] flex flex-col rounded-2xl overflow-hidden shadow-2xl border"
             style={{
-              background: "var(--oniv-earth)",
-              borderColor: "rgba(249, 246, 240, 0.08)",
+              background: "var(--oniv-ivory)",
+              borderColor: "rgba(74, 53, 37, 0.18)",
             }}
           >
-            <div>
-              <span className="eyebrow" style={{ color: "var(--oniv-amber)" }}>
-                Oniv Woods Admissions & Enquiry
-              </span>
-              <h3 className="font-display text-xl mt-0.5" style={{ color: "var(--oniv-ivory)" }}>
-                Begin Your Journey
-              </h3>
-            </div>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full transition-colors hover:bg-white/10"
-              style={{ color: "var(--oniv-ivory)" }}
-              aria-label="Close modal"
+            {/* Modal Header */}
+            <div
+              className="px-7 py-5 flex items-center justify-between border-b shrink-0"
+              style={{
+                background: "var(--oniv-earth)",
+                borderColor: "rgba(249, 246, 240, 0.08)",
+              }}
             >
-              <FiX size={18} />
-            </button>
-          </div>
+              <div>
+                <span className="eyebrow block" style={{ color: "var(--oniv-amber)" }}>
+                  Oniv Woods Admissions & Enquiry
+                </span>
+                <h3
+                  id="enquiry-modal-title"
+                  className="font-display text-xl mt-0.5"
+                  style={{ color: "var(--oniv-ivory)" }}
+                >
+                  Begin Your Journey
+                </h3>
+              </div>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full transition-colors hover:bg-white/10 cursor-pointer"
+                style={{ color: "var(--oniv-ivory)" }}
+                aria-label="Close modal"
+              >
+                <FiX size={18} />
+              </button>
+            </div>
 
-          <div className="p-7">
-            {!submitted ? (
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                {error && (
-                  <div className="p-3 rounded-md bg-red-50 text-red-700 text-xs font-medium border border-red-200">
-                    {error}
-                  </div>
-                )}
+            {/* Scrollable Form Body */}
+            <div className="p-7 overflow-y-auto flex-1">
+              {!submitted ? (
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  {error && (
+                    <div className="p-3 rounded-md bg-red-50 text-red-700 text-xs font-medium border border-red-200">
+                      {error}
+                    </div>
+                  )}
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                      Full Name *
-                    </label>
-                    <input
-                      name="name"
-                      required
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="e.g. Maya Chen"
-                      className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
-                      style={{ borderColor: "rgba(74,53,37,0.2)" }}
-                    />
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
+                        Full Name *
+                      </label>
+                      <input
+                        name="name"
+                        required
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="e.g. Maya Chen"
+                        className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
+                        style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
+                        Email Address *
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder="maya@example.com"
+                        className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
+                        style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                      Email Address *
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="maya@example.com"
-                      className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
-                      style={{ borderColor: "rgba(74,53,37,0.2)" }}
-                    />
-                  </div>
-                </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                      Phone / WhatsApp
-                    </label>
-                    <input
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="+91 / +62..."
-                      className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
-                      style={{ borderColor: "rgba(74,53,37,0.2)" }}
-                    />
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
+                        Phone / WhatsApp
+                      </label>
+                      <input
+                        name="phone"
+                        value={form.phone}
+                        onChange={handleChange}
+                        placeholder="+91 / +62..."
+                        className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
+                        style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
+                        Country *
+                      </label>
+                      <select
+                        name="country"
+                        required
+                        value={form.country}
+                        onChange={handleChange}
+                        className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
+                        style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                      >
+                        <option value="">Select Country</option>
+                        {countries.map((c) => (
+                          <option key={c} value={c}>
+                            {c}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
+
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                      Country *
+                      Program / Discipline of Interest *
                     </label>
                     <select
-                      name="country"
+                      name="course"
                       required
-                      value={form.country}
+                      value={form.course}
                       onChange={handleChange}
                       className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
                       style={{ borderColor: "rgba(74,53,37,0.2)" }}
                     >
-                      <option value="">Select Country</option>
-                      {countries.map((c) => (
+                      <option value="">Select Discipline / Program</option>
+                      {courses.map((c) => (
                         <option key={c} value={c}>
                           {c}
                         </option>
                       ))}
                     </select>
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                    Program / Discipline of Interest *
-                  </label>
-                  <select
-                    name="course"
-                    required
-                    value={form.course}
-                    onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
-                    style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
+                      College / Organization (Optional)
+                    </label>
+                    <input
+                      name="college"
+                      value={form.college}
+                      onChange={handleChange}
+                      placeholder="University or Company"
+                      className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
+                      style={{ borderColor: "rgba(74,53,37,0.2)" }}
+                    />
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="btn-oniv-primary w-full py-3.5 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                    >
+                      {loading ? (
+                        <>
+                          <FiLoader className="animate-spin" size={16} />
+                          <span>Processing Application...</span>
+                        </>
+                      ) : (
+                        "Submit Application & Request Syllabus"
+                      )}
+                    </button>
+                  </div>
+                  <p className="text-center text-[11px]" style={{ color: "rgba(30,27,24,0.5)" }}>
+                    Our admissions mentors respond within 24 business hours.
+                  </p>
+                </form>
+              ) : (
+                <div className="text-center py-10 space-y-3">
+                  <div
+                    className="w-16 h-16 rounded-full mx-auto flex items-center justify-center"
+                    style={{ background: "rgba(176,113,60,0.15)", color: "var(--oniv-amber-dark)" }}
                   >
-                    <option value="">Select Discipline / Program</option>
-                    {courses.map((c) => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    ))}
-                  </select>
+                    <FiCheckCircle size={32} />
+                  </div>
+                  <h3 className="font-display text-2xl font-semibold" style={{ color: "var(--oniv-charcoal)" }}>
+                    Enquiry Received!
+                  </h3>
+                  <p className="text-sm max-w-xs mx-auto" style={{ color: "rgba(30,27,24,0.7)" }}>
+                    Thank you for your interest in Oniv Woods. A faculty advisor will reach out with the detailed curriculum.
+                  </p>
                 </div>
-
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                    College / Organization (Optional)
-                  </label>
-                  <input
-                    name="college"
-                    value={form.college}
-                    onChange={handleChange}
-                    placeholder="University or Company"
-                    className="w-full px-3.5 py-2.5 rounded-lg text-sm border outline-none transition-colors focus:border-amber-600 bg-white"
-                    style={{ borderColor: "rgba(74,53,37,0.2)" }}
-                  />
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-3.5 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90 flex items-center justify-center gap-2"
-                    style={{ background: "var(--oniv-amber)", color: "var(--oniv-ivory)" }}
-                  >
-                    {loading ? (
-                      <>
-                        <FiLoader className="animate-spin" size={16} />
-                        <span>Processing Application...</span>
-                      </>
-                    ) : (
-                      "Submit Application & Request Syllabus"
-                    )}
-                  </button>
-                </div>
-                <p className="text-center text-[11px]" style={{ color: "rgba(30,27,24,0.5)" }}>
-                  Our admissions mentors respond within 24 business hours.
-                </p>
-              </form>
-            ) : (
-              <div className="text-center py-10 space-y-3">
-                <div
-                  className="w-16 h-16 rounded-full mx-auto flex items-center justify-center"
-                  style={{ background: "rgba(176,113,60,0.15)", color: "var(--oniv-amber-dark)" }}
-                >
-                  <FiCheckCircle size={32} />
-                </div>
-                <h3 className="font-display text-2xl font-semibold" style={{ color: "var(--oniv-charcoal)" }}>
-                  Enquiry Received!
-                </h3>
-                <p className="text-sm max-w-xs mx-auto" style={{ color: "rgba(30,27,24,0.7)" }}>
-                  Thank you for your interest in Oniv Woods. A faculty advisor will reach out with the detailed curriculum.
-                </p>
-              </div>
-            )}
-          </div>
-        </motion.div>
-      </div>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
     </AnimatePresence>
   );
 };
