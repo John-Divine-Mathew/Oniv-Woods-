@@ -23,6 +23,7 @@ const Footer = () => {
     { name: "About Us", linkTo: "/about" },
     { name: "All Courses", linkTo: "/courses" },
     { name: "Design Challenge", linkTo: "/challenges" },
+    { name: "Studio Projects", linkTo: "/projects" },
     { name: "Contact & Enquiry", linkTo: "/contact" },
   ];
 
@@ -156,10 +157,11 @@ const Footer = () => {
       >
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Oniv Woods School of Design Wisdom. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             <Link to="/about" className="hover:underline">About</Link>
             <Link to="/courses" className="hover:underline">Courses</Link>
             <Link to="/challenges" className="hover:underline">Challenges</Link>
+            <Link to="/projects" className="hover:underline">Projects</Link>
             <Link to="/contact" className="hover:underline">Contact</Link>
           </div>
         </div>
