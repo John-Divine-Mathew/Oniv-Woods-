@@ -1,6 +1,7 @@
 // ---------------------------------------------
 // FULL STANDARDIZED COURSE & MODULE DATA
-// Structure aligned fully to `productDesign`
+// Structure aligned fully to ONIV WOODS core disciplines
+// ---------------------------------------------
 
 import {
   FiActivity,
@@ -39,53 +40,8 @@ export const commonModules = {
     { icon: <FiActivity size={25} />, title: "Brand Building", desc: "Naming, brand identity and customer psychology." },
     { icon: <FiBox size={25} />, title: "Product Development Strategy", desc: "From idea to launch." },
     { icon: <FiTool size={25} />, title: "Sales & Operations", desc: "Pricing, logistics, vendor management and scaling." },
-    { icon: <FiAnchor size={25} />, title: "Marketing Essentials", desc: "Social media, ads and funnels." },
+    { icon: <FiAnchor size={25} />, title: "Marketing Essentials", desc: "Social media, brand presence and distribution." },
     { icon: <FiLayers size={25} />, title: "Financial Planning", desc: "Budgeting, investments and profit tracking." },
-  ],
-
-  webDev: [
-    { icon: <FiLayers size={25} />, title: "Frontend Development", desc: "HTML, CSS, JavaScript, React and UI/UX." },
-    { icon: <FiBox size={25} />, title: "Backend Development", desc: "Node.js, Express, APIs and databases." },
-    { icon: <FiActivity size={25} />, title: "Full-Stack Projects", desc: "Authentication-based applications." },
-    { icon: <FiTool size={25} />, title: "Debugging & Deployment", desc: "Hosting and production debugging." },
-    { icon: <FiTrendingUp size={25} />, title: "Performance Optimization", desc: "Speed, SEO and best practices." },
-    { icon: <FiAnchor size={25} />, title: "Portfolio Building", desc: "Multiple deployable projects." },
-  ],
-
-  dm: [
-    { icon: <FiTrendingUp size={25} />, title: "SEO & Website Ranking", desc: "On-page, off-page and keywords." },
-    { icon: <FiTool size={25} />, title: "Google & Meta Ads", desc: "Search, display and conversion ads." },
-    { icon: <FiActivity size={25} />, title: "Social Media Marketing", desc: "Content, growth and engagement." },
-    { icon: <FiBox size={25} />, title: "Brand Growth", desc: "Audience building strategies." },
-    { icon: <FiLayers size={25} />, title: "Content Creation", desc: "Copywriting, creatives and reels." },
-    { icon: <FiAnchor size={25} />, title: "Freelancing Setup", desc: "Client onboarding and pricing." },
-  ],
-
-  mobileApp: [
-    { icon: <FiBox size={25} />, title: "App UI Design", desc: "Design mobile UI using Figma." },
-    { icon: <FiLayers size={25} />, title: "App Development", desc: "Flutter or React Native apps." },
-    { icon: <FiTool size={25} />, title: "Backend Integration", desc: "APIs, Firebase and auth." },
-    { icon: <FiActivity size={25} />, title: "Testing & Deployment", desc: "Play Store and App Store." },
-    { icon: <FiTrendingUp size={25} />, title: "Analytics & Scaling", desc: "Usage insights and growth." },
-    { icon: <FiAnchor size={25} />, title: "Capstone Project", desc: "Complete production app." },
-  ],
-
-  uiux: [
-    { icon: <FiLayers size={25} />, title: "UI Design Principles", desc: "Color, typography and layout." },
-    { icon: <FiTool size={25} />, title: "Figma Mastery", desc: "Apps, websites and prototypes." },
-    { icon: <FiActivity size={25} />, title: "UX Research", desc: "Personas, journeys and interviews." },
-    { icon: <FiTrendingUp size={25} />, title: "Wireframing & Prototyping", desc: "Low and high fidelity flows." },
-    { icon: <FiBox size={25} />, title: "Design Systems", desc: "Reusable components." },
-    { icon: <FiAnchor size={25} />, title: "Portfolio Projects", desc: "3 UX case studies." },
-  ],
-
-  ecommerce: [
-    { icon: <FiLayers size={25} />, title: "Online Store Setup", desc: "Shopify, WooCommerce or custom." },
-    { icon: <FiBox size={25} />, title: "Product & Inventory", desc: "Catalogs, pricing and stock." },
-    { icon: <FiTrendingUp size={25} />, title: "E-Commerce Marketing", desc: "Ads, funnels and remarketing." },
-    { icon: <FiActivity size={25} />, title: "Order & Logistics", desc: "Shipping and warehousing." },
-    { icon: <FiTool size={25} />, title: "Revenue Optimization", desc: "CRO and upsells." },
-    { icon: <FiAnchor size={25} />, title: "Store Automation", desc: "Payments and CRM." },
   ],
 };
 
@@ -158,115 +114,5 @@ export const courseDetails = {
     ],
     whoShouldJoin: "Entrepreneurs and founders.",
     outcomes: ["Business plan", "Brand system", "Sales roadmap"],
-  },
-
-  webDev: {
-    title: "Web Development Course",
-    subtitle: "Become a full-stack web developer.",
-    heroDesc: "Frontend, backend and deployment training.",
-    heroImage: "https://res.cloudinary.com/dofuxic0j/image/upload/v1765010688/course16_a5b0aj.webp",
-    topCards: [
-      { icon: <FiLayers size={25} />, title: "Frontend", desc: "React & UI", color: "blue" },
-      { icon: <FiBox size={25} />, title: "Backend", desc: "Node & DB", color: "green" },
-      { icon: <FiActivity size={25} />, title: "Deployment", desc: "Live apps", color: "amber" },
-    ],
-    modules: commonModules.webDev,
-    curriculum: [
-      { week: "Week 1–2", text: "HTML & CSS" },
-      { week: "Week 3–4", text: "JavaScript" },
-      { week: "Week 5–6", text: "React" },
-      { week: "Week 7–8", text: "Backend" },
-      { week: "Week 9–12", text: "Full-stack projects" },
-    ],
-    whoShouldJoin: "Students and job seekers.",
-    outcomes: ["3 projects", "Portfolio website", "Job-ready skills"],
-  },
-
-  dm: {
-    title: "Digital Marketing Course",
-    subtitle: "Learn complete online marketing.",
-    heroDesc: "SEO, ads, content and analytics.",
-    heroImage: "https://res.cloudinary.com/dofuxic0j/image/upload/v1765010688/course7_gh0vce.webp",
-    topCards: [
-      { icon: <FiTrendingUp size={25} />, title: "SEO", desc: "Ranking systems", color: "blue" },
-      { icon: <FiTool size={25} />, title: "Ads", desc: "Google & Meta", color: "green" },
-      { icon: <FiActivity size={25} />, title: "Social Media", desc: "Growth", color: "amber" },
-    ],
-    modules: commonModules.dm,
-    curriculum: [
-      { week: "Week 1–2", text: "SEO basics" },
-      { week: "Week 3–4", text: "Ads" },
-      { week: "Week 5–6", text: "Content" },
-      { week: "Week 7–8", text: "Funnels" },
-      { week: "Week 9–12", text: "Analytics" },
-    ],
-    whoShouldJoin: "Marketers and business owners.",
-    outcomes: ["3 case studies", "Marketing strategy", "Certification prep"],
-  },
-
-  mobileApp: {
-    title: "Mobile App Development",
-    subtitle: "Build Android & iOS apps.",
-    heroDesc: "UI to deployment.",
-    heroImage: "https://res.cloudinary.com/dofuxic0j/image/upload/v1765010689/course20_fpjin1.webp",
-    topCards: [
-      { icon: <FiLayers size={25} />, title: "Cross Platform", desc: "Flutter / RN", color: "blue" },
-      { icon: <FiTool size={25} />, title: "Backend", desc: "APIs & Firebase", color: "green" },
-      { icon: <FiActivity size={25} />, title: "Deployment", desc: "Store publish", color: "amber" },
-    ],
-    modules: commonModules.mobileApp,
-    curriculum: [
-      { week: "Week 1–2", text: "UI Design" },
-      { week: "Week 3–4", text: "App frontend" },
-      { week: "Week 5–6", text: "Backend" },
-      { week: "Week 7–8", text: "Testing" },
-      { week: "Week 9–12", text: "Final app" },
-    ],
-    whoShouldJoin: "Beginners and developers.",
-    outcomes: ["1 mobile app", "Store-ready build", "Portfolio"],
-  },
-
-  uiux: {
-    title: "UI/UX Design",
-    subtitle: "Design digital products.",
-    heroDesc: "UI systems and UX research.",
-    heroImage: "https://res.cloudinary.com/dofuxic0j/image/upload/v1765010688/course18_c3v8rf.webp",
-    topCards: [
-      { icon: <FiLayers size={25} />, title: "UI", desc: "Visual systems", color: "blue" },
-      { icon: <FiTool size={25} />, title: "UX", desc: "Research", color: "green" },
-      { icon: <FiBox size={25} />, title: "Portfolio", desc: "Case studies", color: "amber" },
-    ],
-    modules: commonModules.uiux,
-    curriculum: [
-      { week: "Week 1–2", text: "UI basics" },
-      { week: "Week 3–4", text: "UX research" },
-      { week: "Week 5–6", text: "Prototyping" },
-      { week: "Week 7–8", text: "Design systems" },
-      { week: "Week 9–12", text: "Case studies" },
-    ],
-    whoShouldJoin: "Design aspirants.",
-    outcomes: ["3 case studies", "Portfolio", "Figma mastery"],
-  },
-
-  ecommerce: {
-    title: "E-Commerce Course",
-    subtitle: "Build and scale online stores.",
-    heroDesc: "Store setup, marketing and automation.",
-    heroImage: "https://res.cloudinary.com/dofuxic0j/image/upload/v1765010689/course19_mfahpc.webp",
-    topCards: [
-      { icon: <FiLayers size={25} />, title: "Store Setup", desc: "Platforms", color: "blue" },
-      { icon: <FiTrendingUp size={25} />, title: "Marketing", desc: "Funnels", color: "green" },
-      { icon: <FiBox size={25} />, title: "Inventory", desc: "Logistics", color: "amber" },
-    ],
-    modules: commonModules.ecommerce,
-    curriculum: [
-      { week: "Week 1–2", text: "Store setup" },
-      { week: "Week 3–4", text: "Products" },
-      { week: "Week 5–6", text: "Marketing" },
-      { week: "Week 7–8", text: "Logistics" },
-      { week: "Week 9–12", text: "Scaling" },
-    ],
-    whoShouldJoin: "Entrepreneurs and sellers.",
-    outcomes: ["Online store", "Marketing system", "Automation setup"],
   },
 };

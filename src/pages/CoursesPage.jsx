@@ -29,7 +29,6 @@ const CATEGORIES = [
   "All Disciplines",
   "Wood & Product Design",
   "Industrial & Spatial",
-  "Digital & Software",
   "Business & Growth",
 ];
 
@@ -67,39 +66,6 @@ const VERIFIED_COURSES = [
     image: "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_800/course1_sucxsg.webp",
     summary: "Venture acceleration for design entrepreneurs: unit economics, timber supply chain logistics, brand identity, and scaling.",
     tags: ["Business Modeling", "Brand Strategy", "Operations & Supply", "Funding Roadmap"],
-  },
-  {
-    id: "uiux",
-    title: "UI/UX Design Course",
-    category: "Digital & Software",
-    level: "All Skill Levels",
-    duration: "3–5 Months",
-    mode: "Design Studio",
-    image: "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_800/course18_c3v8rf.webp",
-    summary: "Architect digital user experiences, user research frameworks, interactive Figma systems, and mobile interfaces.",
-    tags: ["UX Research", "Figma Systems", "Wireframing", "Case Studies"],
-  },
-  {
-    id: "webDev",
-    title: "Full-Stack Web Development",
-    category: "Digital & Software",
-    level: "Comprehensive Lab",
-    duration: "4–6 Months",
-    mode: "Code Labs",
-    image: "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_800/course16_a5b0aj.webp",
-    summary: "Full-stack web application engineering utilizing modern React architectures, APIs, databases, and performant cloud deployments.",
-    tags: ["React & Node", "API Design", "Databases", "Live Deployment"],
-  },
-  {
-    id: "dm",
-    title: "Digital Marketing & Brand Growth",
-    category: "Business & Growth",
-    level: "Strategic Masterclass",
-    duration: "3–4 Months",
-    mode: "Live Campaigns",
-    image: "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_800/course7_gh0vce.webp",
-    summary: "Full-funnel digital strategy: international SEO systems, paid ad performance, and content narratives for luxury brands.",
-    tags: ["Brand Growth", "Digital Strategy", "Analytics", "Campaigns"],
   },
 ];
 

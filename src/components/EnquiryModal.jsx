@@ -15,8 +15,6 @@ export const AVAILABLE_OFFERINGS = [
   "Industrial Furniture Design & Joinery",
   "Design Entrepreneurship & Timber Logistics",
   "Parametric CAD & 5-Axis CNC Tooling",
-  "UI/UX & Digital Product Design",
-  "Full-Stack Web Development for Studios",
   "Annual Wood Product Design Challenge (TEI Track)",
   "India & Indonesia Collaborative Fellowship",
   "Enterprise Spatial & Timber Consulting",

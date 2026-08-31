@@ -5,46 +5,25 @@ import SectionHeading from "./SectionHeading";
 
 const COURSES = [
   {
-    category: "Designing Course",
+    category: "Wood & Product Design",
     id: "productDesign",
     title: "Product Designing Course",
     image:
       "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course3_rjg7ld.webp",
   },
   {
-    category: "Designing Course",
+    category: "Industrial & Spatial",
     id: "industrialDesign",
-    title: "Industrial Designing",
+    title: "Industrial Designing Course",
     image:
       "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course4_zk3izx.webp",
   },
   {
-    category: "Business Course",
+    category: "Business & Enterprise",
     id: "business",
     title: "Business & Startup Course",
     image:
       "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course1_sucxsg.webp",
-  },
-  {
-    category: "Software Development",
-    id: "webDev",
-    title: "Web Development",
-    image:
-      "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course16_a5b0aj.webp",
-  },
-  {
-    category: "Software Development",
-    id: "dm",
-    title: "Digital Marketing",
-    image:
-      "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course7_gh0vce.webp",
-  },
-  {
-    category: "Software Development",
-    id: "uiux",
-    title: "UI/UX Designing",
-    image:
-      "https://res.cloudinary.com/dofuxic0j/image/upload/f_auto,q_auto,w_600/course18_c3v8rf.webp",
   },
 ];
 

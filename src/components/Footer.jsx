@@ -31,8 +31,6 @@ const Footer = () => {
     { name: "Product Designing", linkTo: "/course/productDesign" },
     { name: "Industrial Designing", linkTo: "/course/industrialDesign" },
     { name: "Business & Startup", linkTo: "/course/business" },
-    { name: "UI/UX Design", linkTo: "/course/uiux" },
-    { name: "Web Development", linkTo: "/course/webDev" },
   ];
 
   return (
