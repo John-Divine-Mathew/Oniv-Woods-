@@ -220,11 +220,10 @@ export default function NavbarPro({ onEnroll }) {
                       key={link.name}
                       to={link.path}
                       onClick={() => setMobileOpen(false)}
-                      className={`block py-3 px-4 rounded-xl text-base font-medium transition-all ${
-                        active
+                      className={`block py-3 px-4 rounded-xl text-base font-medium transition-all ${active
                           ? "bg-amber-100/70 font-semibold shadow-xs"
                           : "hover:bg-black/5"
-                      }`}
+                        }`}
                       style={{
                         color: active
                           ? "var(--oniv-amber-dark)"

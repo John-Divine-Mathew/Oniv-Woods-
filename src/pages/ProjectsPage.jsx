@@ -18,6 +18,7 @@ import Footer from "../components/Footer";
 import EnquiryModal from "../components/EnquiryModal";
 import SectionHeading from "../components/SectionHeading";
 import FinalCTAPro from "../components/FinalCTAPro";
+import SEO from "../components/SEO";
 
 const CATEGORIES = [
   "All Works",
@@ -121,7 +122,21 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--oniv-ivory)", color: "var(--oniv-charcoal)" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--oniv-ivory)", color: "var(--oniv-charcoal)" }}>
+      <SEO
+        title="Curated Architectural Portfolio & Studio Masterworks"
+        description="Inspect handcrafted heirloom furniture, parametric acoustic screens, spatial pavilions, and commercial trade exhibition prototypes developed by Oniv Woods artisans and designers."
+        canonical="/projects"
+        ogType="website"
+        image="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "ONIV WOODS Selected Studio Works & Precedents",
+          "description": "Portfolio of heirloom joinery, parametric CNC surfaces, and architectural installations.",
+          "url": "https://onivwoods.com/projects"
+        }}
+      />
       <EnquiryModal
         open={openEnquiryModal}
         onClose={() => setOpenEnquiryModal(false)}
@@ -129,11 +144,9 @@ export default function ProjectsPage() {
       />
       <NavbarPro onEnroll={() => handleInquireClick()} />
 
-      {/* ========================================================================= */}
       {/* 1. CINEMATIC HERO */}
-      {/* ========================================================================= */}
       <section
-        className="relative w-full min-h-[75vh] flex items-center overflow-hidden pt-28 pb-20"
+        className="relative w-full min-h-[60vh] sm:min-h-[75vh] flex items-center overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20"
         style={{ background: "var(--oniv-earth)" }}
       >
         <img
@@ -149,12 +162,12 @@ export default function ProjectsPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 w-full text-center">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="eyebrow inline-block mb-4 px-4 py-1.5 rounded-full"
+            className="eyebrow inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs"
             style={{ color: "var(--oniv-ivory)", background: "rgba(176,113,60,0.25)" }}
           >
             The Curated Portfolio
@@ -164,8 +177,7 @@ export default function ProjectsPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.08] max-w-5xl mx-auto"
-            style={{ color: "var(--oniv-ivory)" }}
+            className="font-display text-3xl sm:text-5xl md:text-7xl leading-[1.12] sm:leading-[1.08] max-w-5xl mx-auto text-white"
           >
             Selected Studio Works & Architectural Precedents.
           </motion.h1>
@@ -174,19 +186,16 @@ export default function ProjectsPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed font-light"
-            style={{ color: "rgba(249,246,240,0.85)" }}
+            className="mt-4 sm:mt-6 text-sm sm:text-xl max-w-3xl mx-auto leading-relaxed font-light text-stone-300"
           >
             A high-end architectural retrospective of handcrafted heirlooms, parametric acoustic partitions, and commercial exhibition prototypes developed across India and Indonesia.
           </motion.p>
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 2. FEATURED PROJECTS (ASYMMETRICAL EDITORIAL SPREADS) */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      {/* 2. FEATURED PROJECTS */}
+      <section className="py-16 sm:py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <SectionHeading
             align="center"
             eyebrow="Editorial Spotlight"
@@ -194,17 +203,17 @@ export default function ProjectsPage() {
             subtitle="Flagship architectural pieces demonstrating the uncompromising synergy of hand joinery and multi-axis CNC tooling."
           />
 
-          <div className="mt-16 space-y-20">
+          <div className="mt-10 sm:mt-16 space-y-12 sm:space-y-20">
             {PROJECTS.filter((p) => p.featured).map((proj, idx) => {
               const isEven = idx % 2 === 1;
               return (
                 <motion.div
                   key={proj.id}
-                  initial={{ opacity: 0, y: 35 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.7 }}
-                  className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.5 }}
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-center ${
                     isEven ? "lg:flex-row-reverse" : ""
                   }`}
                 >
@@ -212,7 +221,7 @@ export default function ProjectsPage() {
                   <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                     <div
                       onClick={() => setActiveProjectModal(proj)}
-                      className="group relative rounded-3xl overflow-hidden shadow-2xl border cursor-pointer h-96 sm:h-[460px] bg-gray-100"
+                      className="group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border cursor-pointer h-64 sm:h-96 md:h-[460px] bg-gray-100"
                       style={{ borderColor: "rgba(74,53,37,0.15)" }}
                     >
                       <img
@@ -221,7 +230,7 @@ export default function ProjectsPage() {
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white/90 text-black backdrop-blur-md inline-flex items-center gap-2">
+                        <span className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-white/90 text-black backdrop-blur-md inline-flex items-center gap-2">
                           <FiMaximize2 size={13} />
                           <span>View Detail Spread</span>
                         </span>
@@ -230,38 +239,38 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Editorial Text Column */}
-                  <div className={`lg:col-span-5 space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                    <div className="flex items-center gap-3">
-                      <span className="eyebrow text-xs" style={{ color: "var(--oniv-amber-dark)" }}>
+                  <div className={`lg:col-span-5 space-y-3 sm:space-y-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <div className="flex items-center gap-2.5">
+                      <span className="eyebrow text-[10px] sm:text-xs" style={{ color: "var(--oniv-amber-dark)" }}>
                         {proj.category}
                       </span>
                       {proj.year && (
-                        <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-semibold">
+                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-semibold">
                           {proj.year}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-display text-3xl sm:text-4xl leading-tight" style={{ color: "var(--oniv-charcoal)" }}>
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl leading-tight" style={{ color: "var(--oniv-charcoal)" }}>
                       {proj.title}
                     </h3>
 
-                    <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
+                    <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
                       {proj.desc}
                     </p>
 
                     {proj.location && (
                       <div className="flex items-center gap-2 text-xs font-medium" style={{ color: "rgba(30,27,24,0.6)" }}>
-                        <FiMapPin className="text-amber-700" size={14} />
+                        <FiMapPin className="text-amber-700" size={13} />
                         <span>{proj.location}</span>
                       </div>
                     )}
 
                     <div className="pt-2 border-t" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-                      <span className="text-xs font-semibold block mb-1 text-amber-800">
+                      <span className="text-[11px] sm:text-xs font-semibold block mb-1 text-amber-800">
                         Material & Execution:
                       </span>
-                      <p className="text-xs font-medium" style={{ color: "rgba(30,27,24,0.7)" }}>
+                      <p className="text-xs font-medium leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
                         {proj.material}
                       </p>
                     </div>
@@ -269,7 +278,7 @@ export default function ProjectsPage() {
                     <div className="pt-2">
                       <button
                         onClick={() => setActiveProjectModal(proj)}
-                        className="btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md"
+                        className="w-full sm:w-auto btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md text-center"
                       >
                         Inspect Specifications
                       </button>
@@ -282,32 +291,30 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 3 & 4. PROJECT CATEGORIES & GALLERY (EDITORIAL MASONRY-STYLE GRID) */}
-      {/* ========================================================================= */}
-      <section className="py-24" style={{ background: "var(--oniv-beige)" }}>
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+      {/* 3 & 4. PROJECT ARCHIVE GALLERY */}
+      <section className="py-16 sm:py-24" style={{ background: "var(--oniv-beige)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
             <div>
               <span className="eyebrow" style={{ color: "var(--oniv-amber-dark)" }}>
                 Curated Collection
               </span>
-              <h2 className="font-display text-3xl sm:text-5xl mt-2" style={{ color: "var(--oniv-charcoal)" }}>
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl mt-1.5" style={{ color: "var(--oniv-charcoal)" }}>
                 Project Archive
               </h2>
             </div>
 
             {/* Filter Pills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {CATEGORIES.map((cat) => {
                 const active = selectedCategory === cat;
                 return (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className="px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold transition-all cursor-pointer"
                     style={{
-                      background: active ? "var(--oniv-amber)" : "#ffffff",
+                      background: active ? "var(--oniv-amber)" : "white",
                       color: active ? "var(--oniv-ivory)" : "var(--oniv-charcoal)",
                       border: active ? "1px solid var(--oniv-amber)" : "1px solid rgba(74,53,37,0.15)",
                     }}
@@ -319,79 +326,49 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* Project Gallery Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProjects.map((p, idx) => (
               <motion.div
                 key={p.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="group rounded-3xl overflow-hidden border bg-white flex flex-col justify-between shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                onClick={() => setActiveProjectModal(p)}
+                className="group rounded-2xl overflow-hidden border bg-white cursor-pointer shadow-xs hover:shadow-xl transition-all flex flex-col justify-between"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
-                  {/* Image with Zoom */}
-                  <div
-                    onClick={() => setActiveProjectModal(p)}
-                    className="relative h-64 overflow-hidden bg-gray-100 cursor-pointer"
-                  >
+                  <div className="h-52 sm:h-60 overflow-hidden relative bg-gray-100">
                     <img
                       src={p.image}
                       alt={p.title}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase backdrop-blur-md bg-black/65 text-white border border-white/15">
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase backdrop-blur-md bg-black/60 text-white border border-white/10">
                         {p.category}
                       </span>
                     </div>
-                    {p.year && (
-                      <div className="absolute top-4 right-4">
-                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider bg-white/90 text-black backdrop-blur-md">
-                          {p.year}
-                        </span>
-                      </div>
-                    )}
                   </div>
 
-                  {/* Metadata */}
-                  <div className="p-6">
-                    <h3 className="font-display text-xl leading-snug mb-2" style={{ color: "var(--oniv-charcoal)" }}>
+                  <div className="p-5 sm:p-6">
+                    <h3 className="font-display text-lg sm:text-xl mb-1.5 leading-snug" style={{ color: "var(--oniv-charcoal)" }}>
                       {p.title}
                     </h3>
-                    <p className="text-xs sm:text-sm leading-relaxed mb-4" style={{ color: "rgba(30,27,24,0.68)" }}>
+                    <p className="text-xs sm:text-sm leading-relaxed line-clamp-2 mb-3" style={{ color: "rgba(30,27,24,0.65)" }}>
                       {p.desc}
                     </p>
-
-                    <div className="pt-3 border-t text-xs" style={{ borderColor: "rgba(74,53,37,0.08)", color: "rgba(30,27,24,0.6)" }}>
-                      <strong className="text-amber-800">Material:</strong> {p.material}
-                    </div>
+                    <p className="text-[11px] font-semibold text-amber-800">
+                      {p.material}
+                    </p>
                   </div>
                 </div>
 
-                {/* Footer Action */}
-                <div
-                  className="px-6 pb-6 pt-2 border-t flex items-center justify-between"
-                  style={{ borderColor: "rgba(74,53,37,0.06)" }}
-                >
-                  <button
-                    onClick={() => setActiveProjectModal(p)}
-                    className="text-xs font-bold uppercase tracking-wider transition-colors hover:text-amber-700 inline-flex items-center gap-1.5 cursor-pointer"
-                    style={{ color: "var(--oniv-amber-dark)" }}
-                  >
-                    <span>View Detail</span>
-                    <FiArrowRight size={13} />
-                  </button>
-
-                  <button
-                    onClick={() => handleInquireClick(p.title)}
-                    className="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-amber-100 text-amber-900 transition-colors hover:bg-amber-200 cursor-pointer"
-                  >
-                    Inquire
-                  </button>
+                <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-2 border-t flex items-center justify-between text-xs font-bold" style={{ borderColor: "rgba(74,53,37,0.06)", color: "var(--oniv-amber-dark)" }}>
+                  <span>Inspect Details</span>
+                  <FiArrowRight size={13} />
                 </div>
               </motion.div>
             ))}
@@ -399,13 +376,10 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 5. PROJECT DETAIL MODAL SPREAD */}
-      {/* ========================================================================= */}
       <AnimatePresence>
         {activeProjectModal && (
           <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -414,46 +388,42 @@ export default function ProjectsPage() {
               className="fixed inset-0 bg-black/75 backdrop-blur-md"
             />
 
-            {/* Modal Card */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.25 }}
-              className="relative z-10 w-full max-w-3xl max-h-[90vh] flex flex-col rounded-3xl overflow-hidden shadow-2xl border"
+              className="relative z-10 w-full max-w-3xl max-h-[90vh] flex flex-col rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border"
               style={{
                 background: "var(--oniv-ivory)",
                 borderColor: "rgba(74, 53, 37, 0.18)",
               }}
             >
-              {/* Header */}
               <div
-                className="px-7 py-5 flex items-center justify-between border-b shrink-0"
+                className="px-5 sm:px-7 py-4 sm:py-5 flex items-center justify-between border-b shrink-0"
                 style={{
                   background: "var(--oniv-earth)",
                   borderColor: "rgba(249, 246, 240, 0.08)",
                 }}
               >
                 <div>
-                  <span className="eyebrow block text-[10px]" style={{ color: "var(--oniv-amber)" }}>
+                  <span className="eyebrow block text-[9px] sm:text-[10px]" style={{ color: "var(--oniv-amber)" }}>
                     {activeProjectModal.category} • {activeProjectModal.year}
                   </span>
-                  <h3 className="font-display text-xl" style={{ color: "var(--oniv-ivory)" }}>
+                  <h3 className="font-display text-lg sm:text-xl text-white">
                     {activeProjectModal.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setActiveProjectModal(null)}
-                  className="p-2 rounded-full transition-colors hover:bg-white/10 cursor-pointer"
-                  style={{ color: "var(--oniv-ivory)" }}
+                  className="p-2 rounded-full transition-colors hover:bg-white/10 text-white cursor-pointer"
                 >
                   <FiX size={18} />
                 </button>
               </div>
 
-              {/* Body */}
-              <div className="p-7 overflow-y-auto space-y-6 flex-1">
-                <div className="h-72 sm:h-96 rounded-2xl overflow-hidden shadow-md">
+              <div className="p-5 sm:p-7 overflow-y-auto space-y-5 flex-1">
+                <div className="h-56 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-md">
                   <img
                     src={activeProjectModal.image}
                     alt={activeProjectModal.title}
@@ -462,13 +432,13 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.78)" }}>
+                  <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.78)" }}>
                     {activeProjectModal.desc}
                   </p>
 
-                  <div className="grid sm:grid-cols-2 gap-4 p-5 rounded-2xl bg-white border" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-white border" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
                     <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider block mb-1 text-gray-500">
+                      <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block mb-0.5 text-gray-500">
                         Material Diagnostics
                       </span>
                       <p className="text-xs sm:text-sm font-semibold" style={{ color: "var(--oniv-charcoal)" }}>
@@ -477,7 +447,7 @@ export default function ProjectsPage() {
                     </div>
                     {activeProjectModal.location && (
                       <div>
-                        <span className="text-[11px] font-bold uppercase tracking-wider block mb-1 text-gray-500">
+                        <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block mb-0.5 text-gray-500">
                           Provenance / Location
                         </span>
                         <p className="text-xs sm:text-sm font-semibold" style={{ color: "var(--oniv-charcoal)" }}>
@@ -494,8 +464,8 @@ export default function ProjectsPage() {
                       </span>
                       <div className="space-y-2">
                         {activeProjectModal.specs.map((sp, i) => (
-                          <div key={i} className="flex items-center gap-2 text-xs sm:text-sm font-medium" style={{ color: "var(--oniv-charcoal)" }}>
-                            <FiCheckCircle className="text-amber-700 shrink-0" size={15} />
+                          <div key={i} className="flex items-start gap-2 text-xs sm:text-sm font-medium" style={{ color: "var(--oniv-charcoal)" }}>
+                            <FiCheckCircle className="text-amber-700 shrink-0 mt-0.5" size={14} />
                             <span>{sp}</span>
                           </div>
                         ))}
@@ -504,18 +474,17 @@ export default function ProjectsPage() {
                   )}
                 </div>
 
-                {/* Footer Action */}
-                <div className="pt-4 border-t flex flex-wrap items-center justify-between gap-4" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+                <div className="pt-3 border-t flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
                   <button
                     onClick={() => handleInquireClick(activeProjectModal.title)}
-                    className="btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md"
+                    className="w-full sm:w-auto btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md text-center"
                   >
                     Inquire About Custom Fabrication
                   </button>
 
                   <button
                     onClick={() => setActiveProjectModal(null)}
-                    className="btn-oniv-outline text-xs uppercase tracking-wider font-bold py-3 px-5"
+                    className="w-full sm:w-auto btn-oniv-outline text-xs uppercase tracking-wider font-bold py-3 px-5 text-center"
                   >
                     Close Spread
                   </button>

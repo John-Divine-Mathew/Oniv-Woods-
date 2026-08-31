@@ -22,7 +22,7 @@ const ReviewsSection = () => {
       country: "Indonesia",
       image: "https://tse4.mm.bing.net/th/id/OIP.61G_8wPuNw150hpSp9I8dgHaFj?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
       rating: 4,
-      text: "Informative sessions with clear demonstrations. The practical approach sangat membantu untuk understand lebih baik dan apply secara real..",
+      text: "Informative sessions with clear demonstrations. The practical approach sangat membantu untuk understand lebih baik dan apply secara real.",
     },
     {
       name: "Divya Nair",
@@ -36,66 +36,76 @@ const ReviewsSection = () => {
       country: "Indonesia",
       image: "https://tse2.mm.bing.net/th/id/OIP.KMfy6_3r_YfumQ5Aan1QsgHaE8?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
       rating: 5,
-      text: "Good training structure dengan mentors yang sangat friendly. Overall experience terasa produktif dan sangat bermanfaat untuk pengembangan skill."
-},
-
+      text: "Good training structure dengan mentors yang sangat friendly. Overall experience terasa produktif dan sangat bermanfaat untuk pengembangan skill.",
+    },
   ];
 
   const ReviewCard = ({ name, country, image, rating, text }) => (
     <div
       className="
         shrink-0 
-        min-w-[330px] max-w-[330px]
-        bg-white/90 backdrop-blur-lg
-        shadow-xl rounded-2xl p-6 mx-4
-        border border-gray-200
-        flex flex-col gap-4 h-67
-        transition transform hover:-translate-y-2 hover:shadow-2xl
+        w-[280px] sm:w-[330px]
+        bg-white/95 backdrop-blur-lg
+        shadow-md hover:shadow-xl rounded-2xl p-5 sm:p-6 mx-2 sm:mx-3.5
+        border border-stone-200/80
+        flex flex-col justify-between
+        min-h-[220px] sm:min-h-[240px]
+        transition-all duration-300
       "
     >
-      {/* Profile */}
-      <div className="flex items-center gap-4">
-        <img
-          src={image}
-          className="w-14 h-14 rounded-full object-cover border"
-        />
-        <div className="flex flex-col">
-          <p className="text-lg font-semibold text-gray-900 leading-tight">
-            {name}
-          </p>
-          <p className="text-sm text-gray-500">{country}</p>
+      <div>
+        {/* Profile */}
+        <div className="flex items-center gap-3.5 mb-3">
+          <img
+            src={image}
+            alt={name}
+            loading="lazy"
+            className="w-11 h-11 sm:w-13 sm:h-13 rounded-full object-cover border border-amber-900/10 shrink-0"
+          />
+          <div className="flex flex-col">
+            <p className="text-sm sm:text-base font-semibold text-gray-900 leading-tight">
+              {name}
+            </p>
+            <p className="text-xs text-amber-800/80 font-medium">{country}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Stars */}
-      <div className="flex gap-1 text-yellow-500">
-        {[...Array(rating)].map((_, i) => (
-          <FaStar key={i} />
-        ))}
-      </div>
+        {/* Stars */}
+        <div className="flex gap-1 text-amber-500 text-xs sm:text-sm mb-2.5">
+          {[...Array(rating)].map((_, i) => (
+            <FaStar key={i} />
+          ))}
+        </div>
 
-      {/* Comment */}
-      <p className="text-gray-700 text-[15px] leading-relaxed">
-        {text}
-      </p>
+        {/* Comment */}
+        <p className="text-stone-700 text-xs sm:text-sm leading-relaxed line-clamp-4">
+          {text}
+        </p>
+      </div>
     </div>
   );
 
   return (
-    <section className="py-16 bg-[#f8f5f1]">
-      <h2 className="text-4xl font-extrabold text-center text-black mb-3">
-        What Our Students Say
-      </h2>
+    <section className="py-16 sm:py-24 bg-[#f8f5f1] overflow-hidden border-t border-stone-200/60">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 text-center mb-8 sm:mb-12">
+        <span className="eyebrow block mb-2 text-amber-800">
+          Student Voices
+        </span>
+        <h2 className="text-2xl sm:text-4xl font-display font-bold text-black mb-2 sm:mb-3">
+          What Our Students Say
+        </h2>
+        <p className="text-stone-600 max-w-xl mx-auto text-xs sm:text-sm leading-relaxed">
+          Genuine experiences shared by learners from our studios across India & Indonesia.
+        </p>
+      </div>
 
-      <p className="text-center text-gray-600 mb-10 max-w-xl mx-auto text-lg">
-        Genuine experiences shared by learners from India & Indonesia.
-      </p>
-
-      <Marquee speed={40} pauseOnHover={true} gradient={false}>
-        {reviews.concat(reviews).map((r, i) => (
-          <ReviewCard key={i} {...r} />
-        ))}
-      </Marquee>
+      <div className="overflow-hidden">
+        <Marquee speed={32} pauseOnHover={true} gradient={false}>
+          {reviews.concat(reviews).map((r, i) => (
+            <ReviewCard key={i} {...r} />
+          ))}
+        </Marquee>
+      </div>
     </section>
   );
 };

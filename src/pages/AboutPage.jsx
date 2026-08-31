@@ -118,12 +118,12 @@ const CORE_VALUES = [
   {
     num: "01",
     title: "Material Honesty",
-    desc: "We never disguise the natural soul of wood with synthetic veneers. Knots, grain variations, and live edges are celebrated as authentic hallmarks of nature.",
+    desc: "Respecting wood's living biology—never masking natural knots, tonal shifts, or cellular grain with synthetic veneers or petroleum paints.",
   },
   {
     num: "02",
-    title: "Engineering Precision",
-    desc: "Blending master craftsman instincts with millimeter-accurate CNC tolerance to produce pieces of heirloom durability and flawless function.",
+    title: "Generational Longevity",
+    desc: "Designing heirloom pieces that resist planned obsolescence through precision interlocking joints and renewably oiled finishes.",
   },
   {
     num: "03",
@@ -137,20 +137,34 @@ const CORE_VALUES = [
   },
 ];
 
+import SEO from "../components/SEO";
+
 export default function AboutPage() {
   const [openModal, setOpenModal] = useState(false);
   const [activeSpecies, setActiveSpecies] = useState(WOOD_SPECIES[0]);
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--oniv-ivory)", color: "var(--oniv-charcoal)" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--oniv-ivory)", color: "var(--oniv-charcoal)" }}>
+      <SEO
+        title="About Our Heritage & Craftsmanship Philosophy"
+        description="Learn about Oniv Woods School of Design Wisdom — Bridging architectural theory, solid hardwood joinery, and digital multi-axis CNC fabrication across India and Indonesia."
+        canonical="/about"
+        ogType="website"
+        image="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1200&auto=format&fit=crop"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About ONIV WOODS School of Design Wisdom",
+          "description": "Educational institution committed to advancing wood craftsmanship, digital fabrication, and ecological timber architecture.",
+          "url": "https://onivwoods.com/about"
+        }}
+      />
       <EnquiryModal open={openModal} onClose={() => setOpenModal(false)} />
       <NavbarPro onEnroll={() => setOpenModal(true)} />
 
-      {/* ========================================================================= */}
       {/* 1. CINEMATIC HERO */}
-      {/* ========================================================================= */}
       <section
-        className="relative w-full min-h-[82vh] flex items-center overflow-hidden pt-28 pb-20"
+        className="relative w-full min-h-[65vh] sm:min-h-[82vh] flex items-center overflow-hidden pt-24 sm:pt-28 pb-14 sm:pb-20"
         style={{ background: "var(--oniv-earth)" }}
       >
         <img
@@ -166,19 +180,19 @@ export default function AboutPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 w-full text-center">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-4 sm:mb-5"
             style={{
               background: "rgba(176,113,60,0.2)",
               border: "1px solid rgba(176,113,60,0.4)",
             }}
           >
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span className="eyebrow text-amber-200 text-[10px]">
+            <span className="eyebrow text-amber-200 text-[9px] sm:text-[10px]">
               School of Design Wisdom
             </span>
           </motion.div>
@@ -187,8 +201,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl leading-[1.08] max-w-5xl mx-auto tracking-tight"
-            style={{ color: "var(--oniv-ivory)" }}
+            className="font-display text-3xl sm:text-5xl md:text-7xl leading-[1.12] sm:leading-[1.08] max-w-5xl mx-auto tracking-tight text-white"
           >
             Where Ancient Timber Wisdom Meets Futuristic Architectural Design.
           </motion.h1>
@@ -197,29 +210,26 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed font-light"
-            style={{ color: "rgba(249,246,240,0.85)" }}
+            className="mt-4 sm:mt-6 text-sm sm:text-xl max-w-3xl mx-auto leading-relaxed font-light text-stone-300"
           >
             An international design institute shaping the next generation of wood technology pioneers, master furniture architects, and spatial innovators across India and Indonesia.
           </motion.p>
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 2. BRAND PHILOSOPHY */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <div className="max-w-3xl">
-            <span className="eyebrow block mb-3" style={{ color: "var(--oniv-amber-dark)" }}>
+            <span className="eyebrow block mb-2 sm:mb-3" style={{ color: "var(--oniv-amber-dark)" }}>
               The Philosophy of Living Timber
             </span>
-            <h2 className="font-display text-3xl sm:text-5xl leading-tight mb-8" style={{ color: "var(--oniv-charcoal)" }}>
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-tight mb-6 sm:mb-8" style={{ color: "var(--oniv-charcoal)" }}>
               Wood is not merely a raw material. It is a living, breathing architectural dialogue.
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 pt-4 text-base sm:text-lg leading-relaxed" style={{ color: "rgba(30,27,24,0.78)" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 lg:gap-16 pt-2 sm:pt-4 text-sm sm:text-lg leading-relaxed" style={{ color: "rgba(30,27,24,0.78)" }}>
             <p>
               In an age inundated by transient digital simulations and disposable synthetic goods, <strong>Oniv Woods</strong> champions tactile material honesty. We cultivate designers who honor the slow growth of hardwood rings, the natural resilience of cellulose fibers, and the subtle warmth of timber joinery.
             </p>
@@ -230,40 +240,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 3. ONIV WOODS STORY */}
-      {/* ========================================================================= */}
-      <section className="py-24" style={{ background: "var(--oniv-beige)" }}>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section className="py-16 sm:py-24" style={{ background: "var(--oniv-beige)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Narrative */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
             <span className="eyebrow block" style={{ color: "var(--oniv-amber-dark)" }}>
               Genesis & Mission
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-tight" style={{ color: "var(--oniv-charcoal)" }}>
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-tight" style={{ color: "var(--oniv-charcoal)" }}>
               Reimagining Design Education from the Workshop Floor Upwards.
             </h2>
-            <p className="text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
+            <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
               Founded with the bold objective of closing the critical gap between theoretical design academies and industrial timber manufacturing, <strong>Oniv Woods School of Design Wisdom</strong> provides an authentic apprenticeship model.
             </p>
-            <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
+            <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
               We immerse aspiring creators in state-of-the-art production environments with heavy machinery, 5-axis CNC routing systems, drying kilns, and hand-tool benches. From individual bespoke prototypes to international trade expo exhibitions, we turn passion into world-class design mastery.
             </p>
 
-            <div className="space-y-3 pt-3">
+            <div className="space-y-2.5 pt-2 sm:pt-3">
               {[
                 "Dual-campus pedagogical ecosystem across India & Indonesia",
                 "Full-scale production workshop machinery and studio labs",
                 "Direct commercial incubation and global trade expo exhibition pipelines",
               ].map((pt, i) => (
-                <div key={i} className="flex items-center gap-3">
+                <div key={i} className="flex items-start gap-3">
                   <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                     style={{ background: "rgba(176,113,60,0.15)", color: "var(--oniv-amber-dark)" }}
                   >
-                    <FiCheckCircle size={14} />
+                    <FiCheckCircle size={13} />
                   </div>
-                  <span className="text-sm font-medium" style={{ color: "var(--oniv-charcoal)" }}>
+                  <span className="text-xs sm:text-sm font-medium leading-relaxed" style={{ color: "var(--oniv-charcoal)" }}>
                     {pt}
                   </span>
                 </div>
@@ -273,18 +281,18 @@ export default function AboutPage() {
 
           {/* Right Visual Image Composition */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border" style={{ borderColor: "rgba(74,53,37,0.15)" }}>
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border" style={{ borderColor: "rgba(74,53,37,0.15)" }}>
               <img
                 src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=900&auto=format&fit=crop"
                 alt="Oniv Woods Studio Craftsmanship"
-                className="w-full h-96 sm:h-[460px] object-cover"
+                className="w-full h-64 sm:h-[460px] object-cover"
               />
             </div>
             <div
-              className="hidden sm:block absolute -bottom-6 -left-6 p-6 rounded-2xl shadow-xl border backdrop-blur-md max-w-xs"
+              className="hidden sm:block absolute -bottom-6 -left-6 p-5 sm:p-6 rounded-2xl shadow-xl border backdrop-blur-md max-w-xs"
               style={{ background: "#ffffff", borderColor: "rgba(74,53,37,0.12)" }}
             >
-              <span className="font-display text-2xl font-bold block mb-1" style={{ color: "var(--oniv-amber-dark)" }}>
+              <span className="font-display text-xl sm:text-2xl font-bold block mb-1" style={{ color: "var(--oniv-amber-dark)" }}>
                 Hands-On Rigor
               </span>
               <p className="text-xs leading-relaxed" style={{ color: "rgba(30,27,24,0.65)" }}>
@@ -295,11 +303,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 4. NATURE & MATERIAL (INTERACTIVE WOOD SPECIES EXPLORER) */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <SectionHeading
             align="center"
             eyebrow="Material Honesty & Forestry"
@@ -308,14 +314,14 @@ export default function AboutPage() {
           />
 
           {/* Species Selector Tabs */}
-          <div className="flex flex-wrap justify-center gap-2.5 mt-12 mb-10">
+          <div className="flex flex-wrap justify-center gap-2 mt-8 sm:mt-12 mb-8 sm:mb-10">
             {WOOD_SPECIES.map((species) => {
               const active = activeSpecies.id === species.id;
               return (
                 <button
                   key={species.id}
                   onClick={() => setActiveSpecies(species)}
-                  className="px-5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer"
+                  className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer"
                   style={{
                     background: active ? "var(--oniv-amber)" : "var(--oniv-beige)",
                     color: active ? "var(--oniv-ivory)" : "var(--oniv-charcoal)",
@@ -335,11 +341,11 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
-              className="p-8 sm:p-10 rounded-2xl border bg-white shadow-xl grid lg:grid-cols-12 gap-8 items-center"
+              transition={{ duration: 0.35 }}
+              className="p-5 sm:p-8 lg:p-10 rounded-2xl border bg-white shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center"
               style={{ borderColor: "rgba(74,53,37,0.12)" }}
             >
-              <div className="lg:col-span-5 h-72 sm:h-80 rounded-xl overflow-hidden shadow-inner">
+              <div className="lg:col-span-5 h-56 sm:h-80 rounded-xl overflow-hidden shadow-inner">
                 <img
                   src={activeSpecies.image}
                   alt={activeSpecies.name}
@@ -347,31 +353,31 @@ export default function AboutPage() {
                 />
               </div>
 
-              <div className="lg:col-span-7 space-y-4">
-                <span className="eyebrow" style={{ color: "var(--oniv-amber-dark)" }}>
+              <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+                <span className="eyebrow text-[10px] sm:text-xs" style={{ color: "var(--oniv-amber-dark)" }}>
                   {activeSpecies.tag}
                 </span>
-                <h3 className="font-display text-2xl sm:text-3xl" style={{ color: "var(--oniv-charcoal)" }}>
+                <h3 className="font-display text-xl sm:text-3xl font-semibold" style={{ color: "var(--oniv-charcoal)" }}>
                   {activeSpecies.name}
                 </h3>
-                <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
+                <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.75)" }}>
                   {activeSpecies.character}
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 pt-3 border-t" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+                <div className="grid grid-cols-2 gap-3 pt-3 border-t" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider block" style={{ color: "rgba(30,27,24,0.5)" }}>
+                    <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block" style={{ color: "rgba(30,27,24,0.5)" }}>
                       Density & Weight
                     </span>
-                    <span className="font-semibold text-sm" style={{ color: "var(--oniv-charcoal)" }}>
+                    <span className="font-semibold text-xs sm:text-sm" style={{ color: "var(--oniv-charcoal)" }}>
                       {activeSpecies.density}
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider block" style={{ color: "rgba(30,27,24,0.5)" }}>
+                    <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block" style={{ color: "rgba(30,27,24,0.5)" }}>
                       Origin & Sourcing
                     </span>
-                    <span className="font-semibold text-sm" style={{ color: "var(--oniv-charcoal)" }}>
+                    <span className="font-semibold text-xs sm:text-sm" style={{ color: "var(--oniv-charcoal)" }}>
                       {activeSpecies.origin}
                     </span>
                   </div>
@@ -391,39 +397,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 5. CRAFTSMANSHIP & WORKSHOP MASTERCLASS */}
-      {/* ========================================================================= */}
-      <section className="py-24" style={{ background: "var(--oniv-earth)" }}>
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Narrative on Craftsmanship */}
-          <div className="lg:col-span-6 space-y-6">
-            <span className="eyebrow inline-block px-3.5 py-1 rounded-full text-[10px]" style={{ color: "var(--oniv-ivory)", background: "rgba(176,113,60,0.25)" }}>
+      <section className="py-16 sm:py-24" style={{ background: "var(--oniv-earth)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+            <span className="eyebrow inline-block px-3 py-1 rounded-full text-[10px]" style={{ color: "var(--oniv-ivory)", background: "rgba(176,113,60,0.25)" }}>
               The Guild Studio Experience
             </span>
-            <h2 className="font-display text-3xl sm:text-5xl leading-tight" style={{ color: "var(--oniv-ivory)" }}>
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-tight text-white">
               Mastering the Synergy of Hand Joinery & Heavy Machinery.
             </h2>
-            <p className="text-base leading-relaxed" style={{ color: "rgba(249,246,240,0.8)" }}>
+            <p className="text-sm sm:text-base leading-relaxed text-stone-200">
               Craftsmanship at Oniv Woods is an uncompromising pursuit of excellence. Students train across traditional hand-plane sharpening, Japanese pulling saws, dovetail cutting, spindle moulders, circular panel saws, and vacuum press lamination.
             </p>
-            <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(249,246,240,0.65)" }}>
+            <p className="text-xs sm:text-base leading-relaxed text-stone-300">
               Under the direct mentorship of senior master artisans from India and Indonesia, learners understand the tactile feedback of sharp chisels against grain, executing flawless joints that require zero metallic fasteners.
             </p>
           </div>
 
-          {/* Right Live Workshop Video Player Component */}
           <div className="lg:col-span-6">
             <AboutWorkshopVideo />
           </div>
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 6. DESIGN APPROACH (4-STAGE METHODOLOGY) */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-b" style={{ background: "var(--oniv-beige)", borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-24 border-b" style={{ background: "var(--oniv-beige)", borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <SectionHeading
             align="center"
             eyebrow="Pedagogical Blueprint"
@@ -431,25 +431,25 @@ export default function AboutPage() {
             subtitle="A systematic framework bridging raw creative inspiration to commercial market reality."
           />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-7 mt-10 sm:mt-16">
             {DESIGN_PILLARS.map((dp, idx) => (
               <motion.div
                 key={dp.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-sm hover:shadow-xl transition-all"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: idx * 0.06 }}
+                className="p-6 sm:p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-sm hover:shadow-xl transition-all"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
-                  <span className="font-display text-3xl font-bold block mb-3" style={{ color: "var(--oniv-amber-dark)" }}>
+                  <span className="font-display text-2xl sm:text-3xl font-bold block mb-2 sm:mb-3" style={{ color: "var(--oniv-amber-dark)" }}>
                     {dp.step}
                   </span>
-                  <h3 className="font-display text-lg mb-1" style={{ color: "var(--oniv-charcoal)" }}>
+                  <h3 className="font-display text-base sm:text-lg font-semibold mb-1" style={{ color: "var(--oniv-charcoal)" }}>
                     {dp.title}
                   </h3>
-                  <span className="eyebrow block mb-3 text-[10px]" style={{ color: "var(--oniv-amber)" }}>
+                  <span className="eyebrow block mb-2 sm:mb-3 text-[10px]" style={{ color: "var(--oniv-amber)" }}>
                     {dp.subtitle}
                   </span>
                   <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(30,27,24,0.68)" }}>
@@ -462,11 +462,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 7. INTERIOR & EXTERIOR VISION */}
-      {/* ========================================================================= */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <SectionHeading
             align="center"
             eyebrow="Architectural Scope"
@@ -474,7 +472,7 @@ export default function AboutPage() {
             subtitle="Extending timber design from standalone heirloom objects to transformative spatial environments."
           />
 
-          <div className="grid sm:grid-cols-3 gap-8 mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-10 sm:mt-16">
             {SPATIAL_VISIONS.map((v, i) => (
               <div
                 key={v.title}
@@ -482,15 +480,15 @@ export default function AboutPage() {
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
-                  <div className="h-56 overflow-hidden">
+                  <div className="h-48 sm:h-56 overflow-hidden">
                     <img
                       src={v.img}
                       alt={v.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
-                    <h3 className="font-display text-xl mb-2.5" style={{ color: "var(--oniv-charcoal)" }}>
+                  <div className="p-5 sm:p-6">
+                    <h3 className="font-display text-lg sm:text-xl font-semibold mb-2" style={{ color: "var(--oniv-charcoal)" }}>
                       {v.title}
                     </h3>
                     <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(30,27,24,0.65)" }}>
@@ -504,28 +502,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 8. CORE VALUES */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-t" style={{ background: "var(--oniv-beige)", borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-24 border-t" style={{ background: "var(--oniv-beige)", borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6">
           <SectionHeading
             eyebrow="Our Guiding Values"
             title="Principles That Define Every Masterclass & Project"
             subtitle="The fundamental standards embedded across every workshop, faculty critique, and graduate portfolio."
           />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10 sm:mt-14">
             {CORE_VALUES.map((cv) => (
               <div
                 key={cv.title}
-                className="border-t-2 pt-6"
+                className="border-t-2 pt-4 sm:pt-6"
                 style={{ borderColor: "var(--oniv-amber)" }}
               >
-                <span className="font-display text-2xl font-bold block mb-2" style={{ color: "var(--oniv-amber-dark)" }}>
+                <span className="font-display text-xl sm:text-2xl font-bold block mb-1.5 sm:mb-2" style={{ color: "var(--oniv-amber-dark)" }}>
                   {cv.num}
                 </span>
-                <h4 className="font-display text-xl mb-2" style={{ color: "var(--oniv-charcoal)" }}>
+                <h4 className="font-display text-lg sm:text-xl font-semibold mb-1.5 sm:mb-2" style={{ color: "var(--oniv-charcoal)" }}>
                   {cv.title}
                 </h4>
                 <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(30,27,24,0.65)" }}>
@@ -537,31 +533,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
       {/* 9. GLOBAL VISION & ECOSYSTEM PARTNERS */}
-      {/* ========================================================================= */}
-      <section className="py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6 text-center max-w-3xl mx-auto mb-12">
+      <section className="py-16 sm:py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <span className="eyebrow" style={{ color: "var(--oniv-amber-dark)" }}>
             International Exchange Axis
           </span>
-          <h2 className="font-display text-3xl sm:text-5xl mt-2 mb-4" style={{ color: "var(--oniv-charcoal)" }}>
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl mt-2 mb-3 sm:mb-4" style={{ color: "var(--oniv-charcoal)" }}>
             Connecting the Design Capitals of India and Indonesia.
           </h2>
-          <p className="text-sm sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
+          <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
             Our dual-nation framework gives students unparalleled direct exposure to Southeast Asia's thriving timber furniture hubs, collaborative trade internships, and showcase opportunities at Trade Expo Indonesia (TEI).
           </p>
         </div>
 
-        {/* Marquee Row */}
         <HiringPartner />
       </section>
 
-      {/* ========================================================================= */}
       {/* 10. FINAL CTA */}
-      {/* ========================================================================= */}
       <FinalCTAPro onEnroll={() => setOpenModal(true)} />
-
       <Footer />
     </div>
   );
