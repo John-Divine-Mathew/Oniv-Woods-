@@ -37,18 +37,18 @@ const HiringPartner = () => {
         </p>
       </motion.div>
 
-      <div className="relative z-10 overflow-hidden">
-        <Marquee direction="right" speed={40} gradient={false} pauseOnHover={true}>
+      <div className="relative z-10 overflow-hidden py-2">
+        <Marquee direction="right" speed={38} gradient={false} pauseOnHover={true}>
           {hPartners.map((partner, i) => (
             <div
               key={i}
-              className="mx-3 sm:mx-6 p-3.5 sm:p-4 rounded-xl bg-white shadow-sm hover:shadow-md border border-stone-200/80 transition-shadow"
+              className="mx-3 sm:mx-5 p-3.5 sm:p-4 rounded-xl bg-white shadow-xs hover:shadow-lg border border-stone-200/80 hover:border-amber-700/30 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex items-center justify-center"
             >
               <img
                 src={partner.logo}
                 alt={partner.pname}
                 loading="lazy"
-                className="h-8 sm:h-10 w-16 sm:w-24 object-contain"
+                className="h-8 sm:h-10 w-16 sm:w-24 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}

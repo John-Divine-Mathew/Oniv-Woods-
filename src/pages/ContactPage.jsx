@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "emailjs-com";
 import {
   FiMail,
@@ -471,20 +471,30 @@ export default function ContactPage() {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left gap-3 cursor-pointer"
+                    className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left gap-3 cursor-pointer group"
                   >
-                    <span className="font-display text-base sm:text-lg font-medium" style={{ color: "var(--oniv-charcoal)" }}>
+                    <span className="font-display text-base sm:text-lg font-medium transition-colors group-hover:text-amber-800" style={{ color: "var(--oniv-charcoal)" }}>
                       {faq.q}
                     </span>
-                    <span className="shrink-0 text-amber-700">
+                    <span className="shrink-0 text-amber-700 transition-transform duration-300">
                       {isOpen ? <FiChevronUp size={18} /> : <FiChevronDown size={18} />}
                     </span>
                   </button>
-                  {isOpen && (
-                    <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 border-t text-xs sm:text-sm leading-relaxed" style={{ borderColor: "rgba(74,53,37,0.06)", color: "rgba(30,27,24,0.7)" }}>
-                      {faq.a}
-                    </div>
-                  )}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 border-t text-xs sm:text-sm leading-relaxed" style={{ borderColor: "rgba(74,53,37,0.06)", color: "rgba(30,27,24,0.7)" }}>
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}

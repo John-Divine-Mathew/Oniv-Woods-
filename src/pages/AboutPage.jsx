@@ -21,6 +21,7 @@ import SectionHeading from "../components/SectionHeading";
 import HiringPartner from "../components/HiringPartner";
 import FinalCTAPro from "../components/FinalCTAPro";
 import AboutWorkshopVideo from "../components/AboutWorkshopVideo";
+import SEO from "../components/SEO";
 
 // Section 4: Nature & Material Data
 const WOOD_SPECIES = [
@@ -48,35 +49,35 @@ const WOOD_SPECIES = [
     id: "ash",
     name: "White Ash & European Oak",
     tag: "Exceptional Tensile Strength",
-    density: "710 kg/m³",
-    origin: "Responsibly Harvested Woodlands",
-    character: "Prominent open grain patterns with superior steam-bending elasticity and shock-absorbing structural durability.",
-    bestFor: "Parametric Acoustic Wall Systems & Kinetic Joinery",
+    density: "670 kg/m³",
+    origin: "Managed Northern Hardwood Reserves",
+    character: "Pronounced open grain pores, high shock resistance, and superb steam-bending flexibility for kinetic furniture.",
+    bestFor: "Curved Seating, Acoustic Slats & High-Traffic Surfaces",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
   },
   {
-    id: "rosewood",
+    id: "sonokeling",
     name: "Sonokeling Rosewood",
-    tag: "Exquisite Figured Grain",
-    density: "830 kg/m³",
-    origin: "Regulated Indonesian Agro-forestry",
-    character: "Deep purple-black streaks with sweet floral resin scent, high density, and glass-smooth burnishing capacity.",
-    bestFor: "Acoustic Decor, Custom Handles & Inlay Artistry",
+    tag: "Exotic Veined Luxury",
+    density: "850 kg/m³",
+    origin: "Indonesian Verified Plantations",
+    character: "Deep purple-black streaks with natural resin luster and exceptional hardness, revered by master luthiers.",
+    bestFor: "Artisanal Joinery Accents, Inlays & Executive Masterpieces",
     image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
-// Section 6: Design Approach Steps
+// Section 6: Design Approach (The 4 Pillars)
 const DESIGN_PILLARS = [
   {
     step: "01",
-    title: "Biological Material Diagnostics",
-    subtitle: "Understanding Grain Orientation & Moisture",
-    desc: "Every design journey begins at the cellular level. Students analyze wood species moisture equilibria, growth rings, expansion coefficients, and internal stress points before laying a single sketch line.",
+    title: "Material Intimacy & Grain Diagnostics",
+    subtitle: "Understanding Wood at Cellular Level",
+    desc: "Before sketching a single line, students analyze species elasticity, moisture balance, growth ring orientation, and natural movement tendencies to engineer structurally stable artifacts.",
   },
   {
     step: "02",
-    title: "Architectural Form & Ergonomics",
+    title: "Architectural Form & Ergonomic Iteration",
     subtitle: "From Freehand Ideation to Scale Models",
     desc: "Translating architectural proportions into functional objects. We emphasize physical 1:5 scale foam and timber study models to rigorously validate weight, balance, and human posture interaction.",
   },
@@ -118,26 +119,24 @@ const CORE_VALUES = [
   {
     num: "01",
     title: "Material Honesty",
-    desc: "Respecting wood's living biology—never masking natural knots, tonal shifts, or cellular grain with synthetic veneers or petroleum paints.",
+    desc: "We respect the authentic nature of solid timber, refusing to conceal low-grade cores beneath artificial synthetic skins.",
   },
   {
     num: "02",
-    title: "Generational Longevity",
-    desc: "Designing heirloom pieces that resist planned obsolescence through precision interlocking joints and renewably oiled finishes.",
+    title: "Ancestral Modernity",
+    desc: "Bridging century-old joinery traditions with modern algorithmic 3D CAD modeling and multi-axis CNC machinery.",
   },
   {
     num: "03",
     title: "Ecological Stewardship",
-    desc: "Committed strictly to certified replanted timber plantations, zero-waste nesting cut plans, and non-toxic biodegradable natural oil sealants.",
+    desc: "Prioritizing plantation-grown hardwoods, circular offcut upcycling, and chemical-free organic plant oil finishes.",
   },
   {
     num: "04",
-    title: "Timeless Contemporary Vision",
-    desc: "Rejecting ephemeral trends in favor of clean architectural silhouettes, thoughtful ergonomics, and enduring international design relevance.",
+    title: "International Cross-Pollination",
+    desc: "Fostering active student exchange, trade expo exhibitions, and collaborative studios across India and Indonesia.",
   },
 ];
-
-import SEO from "../components/SEO";
 
 export default function AboutPage() {
   const [openModal, setOpenModal] = useState(false);
@@ -170,7 +169,7 @@ export default function AboutPage() {
         <img
           src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=1800&auto=format&fit=crop"
           alt="Oniv Woods Architectural Workshop"
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="absolute inset-0 w-full h-full object-cover opacity-35 transition-transform duration-1000 hover:scale-105"
         />
         <div
           className="absolute inset-0"
@@ -185,7 +184,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-4 sm:mb-5"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-4 sm:mb-5 shadow-xs"
             style={{
               background: "rgba(176,113,60,0.2)",
               border: "1px solid rgba(176,113,60,0.4)",
@@ -258,15 +257,16 @@ export default function AboutPage() {
               We immerse aspiring creators in state-of-the-art production environments with heavy machinery, 5-axis CNC routing systems, drying kilns, and hand-tool benches. From individual bespoke prototypes to international trade expo exhibitions, we turn passion into world-class design mastery.
             </p>
 
-            <div className="space-y-2.5 pt-2 sm:pt-3">
+            <div className="pt-2 space-y-2.5">
               {[
-                "Dual-campus pedagogical ecosystem across India & Indonesia",
-                "Full-scale production workshop machinery and studio labs",
-                "Direct commercial incubation and global trade expo exhibition pipelines",
+                "100% Production-Grade Industrial Machinery & 5-Axis CNC Tooling",
+                "Direct Mentorship by Master Craftsmen & Registered Architects",
+                "Cross-Border Student Exchanges between India and Indonesia",
+                "Verified Showcase Opportunities at Trade Expo Indonesia (TEI)",
               ].map((pt, i) => (
-                <div key={i} className="flex items-start gap-3">
+                <div key={i} className="flex items-center gap-3">
                   <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
                     style={{ background: "rgba(176,113,60,0.15)", color: "var(--oniv-amber-dark)" }}
                   >
                     <FiCheckCircle size={13} />
@@ -280,16 +280,17 @@ export default function AboutPage() {
           </div>
 
           {/* Right Visual Image Composition */}
-          <div className="lg:col-span-6 relative">
+          <div className="lg:col-span-6 relative group">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border" style={{ borderColor: "rgba(74,53,37,0.15)" }}>
               <img
                 src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=900&auto=format&fit=crop"
                 alt="Oniv Woods Studio Craftsmanship"
-                className="w-full h-64 sm:h-[460px] object-cover"
+                className="w-full h-64 sm:h-[460px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
-            <div
-              className="hidden sm:block absolute -bottom-6 -left-6 p-5 sm:p-6 rounded-2xl shadow-xl border backdrop-blur-md max-w-xs"
+            <motion.div
+              whileHover={{ y: -4 }}
+              className="hidden sm:block absolute -bottom-6 -left-6 p-5 sm:p-6 rounded-2xl shadow-xl border backdrop-blur-md max-w-xs transition-all duration-300"
               style={{ background: "#ffffff", borderColor: "rgba(74,53,37,0.12)" }}
             >
               <span className="font-display text-xl sm:text-2xl font-bold block mb-1" style={{ color: "var(--oniv-amber-dark)" }}>
@@ -298,7 +299,7 @@ export default function AboutPage() {
               <p className="text-xs leading-relaxed" style={{ color: "rgba(30,27,24,0.65)" }}>
                 No purely digital concepts. Every graduate proves their design through full-scale functional prototypes.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -321,7 +322,7 @@ export default function AboutPage() {
                 <button
                   key={species.id}
                   onClick={() => setActiveSpecies(species)}
-                  className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer"
+                  className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-xs"
                   style={{
                     background: active ? "var(--oniv-amber)" : "var(--oniv-beige)",
                     color: active ? "var(--oniv-ivory)" : "var(--oniv-charcoal)",
@@ -345,11 +346,11 @@ export default function AboutPage() {
               className="p-5 sm:p-8 lg:p-10 rounded-2xl border bg-white shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center"
               style={{ borderColor: "rgba(74,53,37,0.12)" }}
             >
-              <div className="lg:col-span-5 h-56 sm:h-80 rounded-xl overflow-hidden shadow-inner">
+              <div className="lg:col-span-5 h-56 sm:h-80 rounded-xl overflow-hidden shadow-inner group">
                 <img
                   src={activeSpecies.image}
                   alt={activeSpecies.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
@@ -439,7 +440,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="p-6 sm:p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-sm hover:shadow-xl transition-all"
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="p-6 sm:p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-amber-700/30 transition-all cursor-default"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
@@ -474,9 +476,14 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-10 sm:mt-16">
             {SPATIAL_VISIONS.map((v, i) => (
-              <div
+              <motion.div
                 key={v.title}
-                className="group rounded-2xl overflow-hidden border bg-white shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="group rounded-2xl overflow-hidden border bg-white shadow-sm hover:shadow-xl hover:border-amber-700/30 transition-all flex flex-col justify-between cursor-default"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
@@ -484,7 +491,7 @@ export default function AboutPage() {
                     <img
                       src={v.img}
                       alt={v.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                     />
                   </div>
                   <div className="p-5 sm:p-6">
@@ -496,7 +503,7 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -512,46 +519,37 @@ export default function AboutPage() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-10 sm:mt-14">
-            {CORE_VALUES.map((cv) => (
-              <div
+            {CORE_VALUES.map((cv, i) => (
+              <motion.div
                 key={cv.title}
-                className="border-t-2 pt-4 sm:pt-6"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="border-t-2 pt-4 sm:pt-6 group"
                 style={{ borderColor: "var(--oniv-amber)" }}
               >
-                <span className="font-display text-xl sm:text-2xl font-bold block mb-1.5 sm:mb-2" style={{ color: "var(--oniv-amber-dark)" }}>
+                <span className="font-display text-3xl font-bold block mb-2 transition-transform duration-300 group-hover:translate-x-1" style={{ color: "var(--oniv-amber-dark)" }}>
                   {cv.num}
                 </span>
-                <h4 className="font-display text-lg sm:text-xl font-semibold mb-1.5 sm:mb-2" style={{ color: "var(--oniv-charcoal)" }}>
+                <h4 className="font-display text-lg sm:text-xl font-semibold mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
                   {cv.title}
                 </h4>
-                <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(30,27,24,0.65)" }}>
+                <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
                   {cv.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 9. GLOBAL VISION & ECOSYSTEM PARTNERS */}
-      <section className="py-16 sm:py-24 border-b" style={{ borderColor: "rgba(74,53,37,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <span className="eyebrow" style={{ color: "var(--oniv-amber-dark)" }}>
-            International Exchange Axis
-          </span>
-          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl mt-2 mb-3 sm:mb-4" style={{ color: "var(--oniv-charcoal)" }}>
-            Connecting the Design Capitals of India and Indonesia.
-          </h2>
-          <p className="text-xs sm:text-base leading-relaxed" style={{ color: "rgba(30,27,24,0.7)" }}>
-            Our dual-nation framework gives students unparalleled direct exposure to Southeast Asia's thriving timber furniture hubs, collaborative trade internships, and showcase opportunities at Trade Expo Indonesia (TEI).
-          </p>
-        </div>
-
-        <HiringPartner />
-      </section>
+      {/* 9. HIRING PARTNERS */}
+      <HiringPartner />
 
       {/* 10. FINAL CTA */}
       <FinalCTAPro onEnroll={() => setOpenModal(true)} />
+
       <Footer />
     </div>
   );

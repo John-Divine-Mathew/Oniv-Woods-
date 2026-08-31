@@ -312,7 +312,7 @@ export default function ProjectsPage() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold transition-all cursor-pointer"
+                    className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-xs"
                     style={{
                       background: active ? "var(--oniv-amber)" : "white",
                       color: active ? "var(--oniv-ivory)" : "var(--oniv-charcoal)",
@@ -334,8 +334,9 @@ export default function ProjectsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.4, delay: idx * 0.04 }}
+                whileHover={{ y: -5, transition: { duration: 0.25 } }}
                 onClick={() => setActiveProjectModal(p)}
-                className="group rounded-2xl overflow-hidden border bg-white cursor-pointer shadow-xs hover:shadow-xl transition-all flex flex-col justify-between"
+                className="group rounded-2xl overflow-hidden border bg-white cursor-pointer shadow-xs hover:shadow-xl hover:border-amber-700/30 transition-all flex flex-col justify-between"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
@@ -344,7 +345,7 @@ export default function ProjectsPage() {
                       src={p.image}
                       alt={p.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                     />
                     <div className="absolute top-3 left-3">
                       <span className="px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase backdrop-blur-md bg-black/60 text-white border border-white/10">
@@ -368,7 +369,7 @@ export default function ProjectsPage() {
 
                 <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-2 border-t flex items-center justify-between text-xs font-bold" style={{ borderColor: "rgba(74,53,37,0.06)", color: "var(--oniv-amber-dark)" }}>
                   <span>Inspect Details</span>
-                  <FiArrowRight size={13} />
+                  <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={13} />
                 </div>
               </motion.div>
             ))}

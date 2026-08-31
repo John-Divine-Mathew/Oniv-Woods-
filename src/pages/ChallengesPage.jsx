@@ -341,18 +341,19 @@ export default function ChallengesPage() {
                     <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
                       <button
                         onClick={() => handleRegisterClick(challenge.title)}
-                        className="btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md text-center"
+                        className="btn-oniv-primary text-xs uppercase tracking-wider font-bold py-3 px-6 shadow-md text-center group/btn"
                       >
-                        Register for Track {challenge.num}
+                        <span>Register for Track {challenge.num}</span>
+                        <FiArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" size={13} />
                       </button>
 
                       <Link
                         to={`/challenge/${challenge.id}`}
-                        className="text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-1.5 transition-colors hover:text-amber-700 py-2.5 px-2 cursor-pointer text-center"
+                        className="group/link text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-1.5 transition-colors hover:text-amber-700 py-2.5 px-2 cursor-pointer text-center"
                         style={{ color: "var(--oniv-amber-dark)" }}
                       >
                         <span>View Detailed Brief</span>
-                        <FiArrowRight size={13} />
+                        <FiArrowRight className="transition-transform duration-300 group-hover/link:translate-x-1" size={13} />
                       </Link>
                     </div>
                   </div>
@@ -381,7 +382,8 @@ export default function ChallengesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="p-6 sm:p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-xs hover:shadow-lg transition-shadow"
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="p-6 sm:p-8 rounded-2xl bg-white border flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-amber-700/30 transition-all cursor-default"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
@@ -389,7 +391,7 @@ export default function ChallengesPage() {
                     <span className="font-display text-2xl sm:text-3xl font-bold" style={{ color: "var(--oniv-amber-dark)" }}>
                       {c.score}
                     </span>
-                    <FiStar className="text-amber-500" size={16} />
+                    <FiStar className="text-amber-500 transition-transform duration-300 hover:rotate-45" size={16} />
                   </div>
                   <h4 className="font-display text-base sm:text-lg mb-1.5" style={{ color: "var(--oniv-charcoal)" }}>
                     {c.title}

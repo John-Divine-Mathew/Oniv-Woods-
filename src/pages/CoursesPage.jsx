@@ -340,7 +340,7 @@ export default function CoursesPage() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold transition-all cursor-pointer"
+                    className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-xs"
                     style={{
                       background: active ? "var(--oniv-amber)" : "var(--oniv-beige)",
                       color: active ? "var(--oniv-ivory)" : "var(--oniv-charcoal)",
@@ -363,7 +363,8 @@ export default function CoursesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.4, delay: idx * 0.04 }}
-                className="group rounded-2xl overflow-hidden border bg-white flex flex-col justify-between transition-all duration-300 hover:shadow-xl"
+                whileHover={{ y: -5, transition: { duration: 0.25 } }}
+                className="group rounded-2xl overflow-hidden border bg-white flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-amber-700/30"
                 style={{ borderColor: "rgba(74,53,37,0.12)" }}
               >
                 <div>
@@ -373,7 +374,7 @@ export default function CoursesPage() {
                       src={c.image}
                       alt={c.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                     />
                     <div className="absolute top-3 left-3">
                       <span className="px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold tracking-wider uppercase backdrop-blur-md bg-black/60 text-white border border-white/10">
@@ -388,13 +389,13 @@ export default function CoursesPage() {
                       <span className="eyebrow text-[10px] sm:text-xs" style={{ color: "var(--oniv-amber-dark)" }}>
                         {c.category}
                       </span>
-                      <span className="text-[11px] sm:text-xs flex items-center gap-1 font-medium" style={{ color: "rgba(30,27,24,0.6)" }}>
-                        <FiClock size={11} />
-                        {c.duration}
+                      <span className="text-xs font-semibold text-stone-500 flex items-center gap-1">
+                        <FiClock size={12} className="text-amber-800" />
+                        <span>{c.duration}</span>
                       </span>
                     </div>
 
-                    <h3 className="font-display text-lg sm:text-xl leading-snug mb-1" style={{ color: "var(--oniv-charcoal)" }}>
+                    <h3 className="font-display text-lg sm:text-xl font-semibold mb-1 leading-snug" style={{ color: "var(--oniv-charcoal)" }}>
                       {c.title}
                     </h3>
                     <span className="text-[11px] font-semibold text-amber-700 block mb-2.5">
@@ -409,7 +410,7 @@ export default function CoursesPage() {
                       {c.tags.map((t) => (
                         <span
                           key={t}
-                          className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium"
+                          className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium transition-colors hover:bg-amber-100"
                           style={{ background: "var(--oniv-beige)", color: "var(--oniv-charcoal)" }}
                         >
                           {t}
@@ -426,17 +427,16 @@ export default function CoursesPage() {
                 >
                   <button
                     onClick={() => navigate(`/course/${c.id}`)}
-                    className="text-xs font-bold uppercase tracking-wider transition-colors hover:text-amber-700 inline-flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold uppercase tracking-wider transition-colors hover:text-amber-700 inline-flex items-center gap-1.5 cursor-pointer group/link"
                     style={{ color: "var(--oniv-amber-dark)" }}
                   >
                     <span>Syllabus</span>
-                    <FiArrowRight size={13} />
+                    <FiArrowRight className="transition-transform duration-300 group-hover/link:translate-x-1" size={13} />
                   </button>
 
                   <button
                     onClick={() => handleEnrollClick(c.title)}
-                    className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs font-semibold transition-opacity hover:opacity-90 cursor-pointer"
-                    style={{ background: "var(--oniv-amber)", color: "var(--oniv-ivory)" }}
+                    className="btn-oniv-primary text-xs font-semibold py-2 px-4 shadow-sm"
                   >
                     Enroll Now
                   </button>

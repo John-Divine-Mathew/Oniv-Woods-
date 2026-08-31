@@ -46,11 +46,12 @@ const ReviewsSection = () => {
         shrink-0 
         w-[280px] sm:w-[330px]
         bg-white/95 backdrop-blur-lg
-        shadow-md hover:shadow-xl rounded-2xl p-5 sm:p-6 mx-2 sm:mx-3.5
-        border border-stone-200/80
+        shadow-sm hover:shadow-xl rounded-2xl p-5 sm:p-6 mx-2 sm:mx-3.5
+        border border-stone-200/80 hover:border-amber-700/30
         flex flex-col justify-between
         min-h-[220px] sm:min-h-[240px]
-        transition-all duration-300
+        transition-all duration-300 hover:-translate-y-1.5
+        cursor-default
       "
     >
       <div>
@@ -60,7 +61,7 @@ const ReviewsSection = () => {
             src={image}
             alt={name}
             loading="lazy"
-            className="w-11 h-11 sm:w-13 sm:h-13 rounded-full object-cover border border-amber-900/10 shrink-0"
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border border-amber-900/10 shrink-0 transition-transform duration-300 hover:scale-105"
           />
           <div className="flex flex-col">
             <p className="text-sm sm:text-base font-semibold text-gray-900 leading-tight">
@@ -73,7 +74,7 @@ const ReviewsSection = () => {
         {/* Stars */}
         <div className="flex gap-1 text-amber-500 text-xs sm:text-sm mb-2.5">
           {[...Array(rating)].map((_, i) => (
-            <FaStar key={i} />
+            <FaStar key={i} className="transition-transform duration-200 hover:scale-125 hover:text-amber-400" />
           ))}
         </div>
 
@@ -99,13 +100,17 @@ const ReviewsSection = () => {
         </p>
       </div>
 
-      <div className="overflow-hidden">
-        <Marquee speed={32} pauseOnHover={true} gradient={false}>
-          {reviews.concat(reviews).map((r, i) => (
-            <ReviewCard key={i} {...r} />
-          ))}
-        </Marquee>
-      </div>
+      {/* Marquee with pause on hover */}
+      <Marquee
+        gradient={false}
+        speed={32}
+        pauseOnHover={true}
+        className="overflow-hidden py-3"
+      >
+        {reviews.map((r, i) => (
+          <ReviewCard key={i} {...r} />
+        ))}
+      </Marquee>
     </section>
   );
 };

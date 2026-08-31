@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
 import SectionHeading from "./SectionHeading";
 
 const COURSES = [
@@ -61,7 +62,7 @@ export default function CourseGrid() {
           />
           <button
             onClick={() => navigate("/courses")}
-            className="w-full sm:w-auto px-6 py-3 rounded-md font-medium text-xs sm:text-sm border transition-colors hover:bg-black/5 cursor-pointer text-center"
+            className="w-full sm:w-auto px-6 py-3 rounded-lg font-medium text-xs sm:text-sm border transition-all duration-300 hover:bg-stone-900 hover:text-white hover:shadow-md cursor-pointer text-center"
             style={{ borderColor: "var(--oniv-charcoal)", color: "var(--oniv-charcoal)" }}
           >
             View All Courses
@@ -74,32 +75,40 @@ export default function CourseGrid() {
               key={c.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: i * 0.05 }}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
               onClick={() => navigate(`/course/${c.id}`)}
-              className="group cursor-pointer rounded-xl overflow-hidden border bg-white transition-all hover:shadow-xl active:scale-[0.99]"
-              style={{ borderColor: "rgba(74,53,37,0.1)" }}
+              className="group cursor-pointer rounded-2xl overflow-hidden border bg-white transition-all duration-300 hover:shadow-xl hover:border-amber-700/40 active:scale-[0.99] flex flex-col justify-between"
+              style={{ borderColor: "rgba(74,53,37,0.12)" }}
             >
-              <div className="relative h-48 sm:h-52 overflow-hidden bg-stone-100">
-                <img
-                  src={c.image}
-                  alt={c.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+              <div>
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-stone-100">
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-5">
+                  <span className="eyebrow text-[10px] sm:text-[11px]" style={{ color: "var(--oniv-amber-dark)" }}>
+                    {c.category}
+                  </span>
+                  <h3 className="font-display text-lg sm:text-xl mt-1.5 leading-snug" style={{ color: "var(--oniv-charcoal)" }}>
+                    {c.title}
+                  </h3>
+                </div>
               </div>
-              <div className="p-4 sm:p-5">
-                <span className="eyebrow text-[10px] sm:text-[11px]" style={{ color: "var(--oniv-amber-dark)" }}>
-                  {c.category}
-                </span>
-                <h3 className="font-display text-lg sm:text-xl mt-1.5" style={{ color: "var(--oniv-charcoal)" }}>
-                  {c.title}
-                </h3>
+
+              <div className="px-5 pb-5 pt-0">
                 <span
-                  className="inline-block mt-3 text-xs sm:text-sm font-semibold"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold transition-colors duration-200 group-hover:text-amber-800"
                   style={{ color: "var(--oniv-amber-dark)" }}
                 >
-                  View Details →
+                  <span>View Details</span>
+                  <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1.5" size={14} />
                 </span>
               </div>
             </motion.div>

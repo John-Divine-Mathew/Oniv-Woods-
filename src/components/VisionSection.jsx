@@ -1,4 +1,5 @@
 import { FaRegStar, FaBullseye, FaEye } from "react-icons/fa";
+import { FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const VisionSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2B2B2B] text-[#FFF8EE] text-xs mb-4">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2B2B2B] text-[#FFF8EE] text-xs mb-4 shadow-xs">
             <FaRegStar size={13} className="text-amber-400" />
             <span className="eyebrow tracking-wider text-[11px]">Our Philosophy</span>
           </span>
@@ -26,7 +27,7 @@ const VisionSection = () => {
             Our Vision & Core Purpose
           </h2>
 
-          <p className="text-[#5A5A5A] text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
+          <p className="text-[#5A5A5A] text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed font-normal">
             To cultivate the next generation of visionary designers by blending traditional craftsmanship,
             modern innovation, and global exposure — empowering students to create real-world industry impact.
           </p>
@@ -54,8 +55,9 @@ const VisionSection = () => {
                   duration: 0.5,
                   delay: idx * 0.15,
                 }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
                 viewport={{ once: true }}
-                className="flex gap-3.5 items-start p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs"
+                className="flex gap-3.5 items-start p-4.5 rounded-xl bg-white border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 cursor-default"
               >
                 <div className={`p-2.5 rounded-lg text-[#2B2B2B] shrink-0 ${item.bg}`}>
                   {item.icon}
@@ -72,9 +74,10 @@ const VisionSection = () => {
 
           <Link
             to="/about"
-            className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-3.5 rounded-lg bg-[#B89B5E] text-[#2B2B2B] text-xs font-bold uppercase tracking-wider shadow-md hover:brightness-105 transition-all text-center"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-[#B89B5E] hover:bg-[#A88B4E] text-[#1E1B18] text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300 text-center"
           >
-            Learn More About Our Heritage
+            <span>Learn More About Our Heritage</span>
+            <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={14} />
           </Link>
         </motion.div>
 
@@ -84,16 +87,16 @@ const VisionSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative group"
         >
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E6DCCB]">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
               alt="Students studying together at Oniv Woods"
-              className="w-full h-64 sm:h-96 object-cover"
+              className="w-full h-64 sm:h-96 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="absolute bottom-4 left-4 right-4 sm:right-auto bg-[#FFF9F1]/95 backdrop-blur-md px-4 py-2.5 rounded-xl text-xs shadow-md text-[#2B2B2B] border border-amber-900/10 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-600" />
+              <span className="w-2 h-2 rounded-full bg-amber-600 animate-pulse" />
               <span className="font-medium">International Student Collaboration</span>
             </div>
           </div>

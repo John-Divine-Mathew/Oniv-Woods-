@@ -379,24 +379,25 @@ export default function SustainabilitySection({ onEnroll }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {LIFECYCLE_STAGES.map((stage, idx) => (
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
+                key={stage.num}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-5 sm:p-6 rounded-xl border bg-white flex flex-col justify-between relative transition-all duration-300 hover:shadow-lg"
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.45, delay: idx * 0.08 }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="p-5 sm:p-6 rounded-xl bg-white border flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-amber-700/30 transition-all cursor-default"
                 style={{ borderColor: "rgba(74, 53, 37, 0.12)" }}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span
-                      className="font-display text-xl sm:text-2xl font-bold"
+                      className="font-display text-2xl sm:text-3xl font-bold"
                       style={{ color: "var(--oniv-amber-dark)" }}
                     >
                       {stage.num}
                     </span>
                     <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center"
+                      className="w-8 h-8 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                       style={{ background: "rgba(176,113,60,0.12)", color: "var(--oniv-amber-dark)" }}
                     >
                       {stage.icon}
